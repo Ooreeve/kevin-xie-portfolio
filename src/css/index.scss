@@ -1,0 +1,19 @@
+@import "preset";
+@import "nav";
+@import "main";
+@import "app";
+@import "header";
+@import "footer";
+@import "background";
+
+* {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: $font_prim;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}

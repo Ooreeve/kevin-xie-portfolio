@@ -1,0 +1,44 @@
+nav {
+    @include flex_row;
+    .link_container {
+        width: 80px;
+        height: 80px;
+        margin: 0 3vw;
+        border-radius: 50%;
+        position: relative;
+        transition: all 0.3s;
+        &:hover {
+            transform: scale(1.05);
+        }
+        &:active {
+            transition: all 0.1s;
+            transform: scale(1);
+        }
+        .link {
+            width: inherit;
+            height: inherit;
+            @include flex_row;
+            border-radius: 50%;
+            background-color: $color_pri;
+            border: solid $color_pri 1.5px;
+            color: $color_pri_d1;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding-top: 0px;
+            text-transform: capitalize;
+            transition: all 0.3s;
+        }
+        .link_bg {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background-color: $color_pri;
+            top: 0;
+            z-index: -5;
+            border-radius: 100px;
+            display: none;
+            // transform: translate(0px, 20px);
+        }
+    }
+}

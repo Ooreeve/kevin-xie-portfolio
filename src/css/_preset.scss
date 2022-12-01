@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@200;500;700&display=swap");
+
+//font---------------------
+$font_prim: "Josefin Slab", serif;
+
+//color--------------------
+$color_pri: #61af80;
+$color_pri_d1: #39473f;
+$color_pri_l1: #cdf9df;
+$color_sec: #f69337;
+$color_sec_d1: #775a40;
+$color_sec_l1: #ffd5ae;
+
+//mixin--------------------
+@mixin flex_col($justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+@mixin flex_row($justify-content: center, $align-items: center) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}

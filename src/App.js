@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState, createContext } from "react";
+import { BrowserRouter as Router, Routes, route } from "react-router-dom";
+import Background from "./Background";
+import Footer from "./Footer";
+import Header from "./Header";
+import Main from "./Main";
+export const MyContext = createContext();
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [pageNow, setPageNow] = useState("home");
+
+    return (
+        <MyContext.Provider value={{ pageNow: [pageNow, setPageNow] }}>
+            <Router>
+                <div className="app">
+                    <Background />
+                    <Header />
+                    <Main />
+                    <Footer />
+                </div>
+            </Router>
+        </MyContext.Provider>
+    );
 }
-
-export default App;
