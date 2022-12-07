@@ -7,10 +7,22 @@ import Main from "./Main";
 export const MyContext = createContext();
 
 export default function App() {
-    const [pageNow, setPageNow] = useState("home");
+    const links_data = [
+        { name: "home", now: true },
+        { name: "about", now: null },
+        { name: "works", now: null },
+        { name: "contact", now: null },
+    ];
 
+    const [pageNow, setPageNow] = useState("home");
+    const [linksData, setLinksData] = useState(links_data);
     return (
-        <MyContext.Provider value={{ pageNow: [pageNow, setPageNow] }}>
+        <MyContext.Provider
+            value={{
+                pageNow: [pageNow, setPageNow],
+                linksData: [linksData, setLinksData],
+            }}
+        >
             <Router>
                 <div className="app">
                     <Background />

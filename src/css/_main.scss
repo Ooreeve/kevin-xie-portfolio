@@ -5,5 +5,14 @@ main {
     width: 90%;
     height: 75%;
     border-radius: 10px;
-    opacity: 0.8;
+    opacity: 0.6;
+}
+
+@keyframes main_change {
+    20% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
 }

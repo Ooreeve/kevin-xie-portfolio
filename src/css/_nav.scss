@@ -7,19 +7,20 @@ nav {
         border-radius: 50%;
         position: relative;
         transition: all 0.3s;
+        @include flex_row;
         &:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         &:active {
             transition: all 0.1s;
             transform: scale(1);
         }
         .link {
+            position: absolute;
             width: inherit;
             height: inherit;
             @include flex_row;
             border-radius: 50%;
-            background-color: $color_pri;
             border: solid $color_pri 1.5px;
             color: $color_pri_d1;
             text-decoration: none;
@@ -28,17 +29,174 @@ nav {
             padding-top: 0px;
             text-transform: capitalize;
             transition: all 0.3s;
+            transition: color 0.3s 0.8s;
+            opacity: 1;
+            &.page_now {
+                background-color: transparent;
+                color: white;
+                animation: link_border 2s;
+            }
         }
         .link_bg {
-            position: absolute;
             width: inherit;
             height: inherit;
+            border-radius: 50%;
             background-color: $color_pri;
-            top: 0;
-            z-index: -5;
-            border-radius: 100px;
-            display: none;
-            // transform: translate(0px, 20px);
+            opacity: 0;
+            position: absolute;
+            z-index: -2;
         }
+    }
+    .link_bg_container {
+        @include flex_row;
+        position: absolute;
+        z-index: -2;
+        .link_bg {
+            width: 80px;
+            height: 80px;
+            margin: 0 3vw;
+            border-radius: 50%;
+            position: relative;
+            background-color: $color_pri;
+            opacity: 0;
+        }
+    }
+    .fake_main_curtain {
+        position: absolute;
+        top: 160px;
+        width: 90vw;
+        height: 75vh;
+        border-radius: 10px;
+        z-index: -1;
+        backdrop-filter: blur(5px);
+    }
+    .fake_main_in {
+        position: absolute;
+        top: 160px;
+        width: 90vw;
+        height: 75vh;
+        border-radius: 10px;
+        @include flex_row(center, flex-start);
+        z-index: -2;
+        overflow: hidden;
+        .link_bg_in {
+            width: 80px;
+            height: 80px;
+            margin: 0 3vw;
+            border-radius: 50%;
+            position: relative;
+            background-color: $color_pri;
+            top: -120px;
+            opacity: 0;
+        }
+    }
+    .fake_main_out {
+        position: absolute;
+        top: 160px;
+        width: 90vw;
+        height: 75vh;
+        border-radius: 10px;
+        @include flex_row(center, flex-start);
+        z-index: -2;
+        overflow: hidden;
+        .link_bg_out {
+            width: 80px;
+            height: 80px;
+            margin: 0 3vw;
+            border-radius: 50%;
+            position: relative;
+            background-color: $color_pri;
+            top: -120px;
+            opacity: 0;
+        }
+    }
+}
+
+//animation-------------
+@keyframes link_border {
+    0% {
+        border: solid transparent 1.5px;
+    }
+    35% {
+        border: solid transparent 1.5px;
+        width: 120px;
+        height: 120px;
+    }
+    70% {
+        border: solid $color_pri 1.5px;
+    }
+}
+
+@keyframes link_bg {
+    0% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes link_in {
+    0% {
+        transform: translate(0, 0px);
+        opacity: 0.8;
+    }
+    40% {
+        transform: translate(0, 0px) scale(1.5);
+        opacity: 0.8;
+    }
+    60% {
+        transform: translate(0, 430px) scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(0, 700px) scale(35);
+        opacity: 0.8;
+    }
+}
+
+@keyframes link_out {
+    0% {
+        transform: translate(0, 700px) scale(35);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate(0, 430px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(0, 0px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes fake_main_in {
+    0% {
+        overflow: visible;
+    }
+    55% {
+        overflow: visible;
+    }
+    56% {
+        overflow: hidden;
+    }
+    100% {
+        overflow: hidden;
+    }
+}
+
+@keyframes fake_main_out {
+    0% {
+        overflow: hidden;
+    }
+    55% {
+        overflow: hidden;
+    }
+    56% {
+        overflow: visible;
+    }
+    100% {
+        overflow: visible;
     }
 }
