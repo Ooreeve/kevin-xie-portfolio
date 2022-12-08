@@ -1,9 +1,11 @@
 import { React, useState, createContext } from "react";
 import { BrowserRouter as Router, Routes, route } from "react-router-dom";
 import Background from "./Background";
+import Cursor from "./Cursor";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
+
 export const MyContext = createContext();
 
 export default function App() {
@@ -29,6 +31,7 @@ export default function App() {
                     <Header />
                     <Main />
                     <Footer />
+                    <Cursor />
                 </div>
             </Router>
         </MyContext.Provider>

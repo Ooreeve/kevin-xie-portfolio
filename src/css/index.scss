@@ -5,11 +5,14 @@
 @import "header";
 @import "footer";
 @import "background";
+@import "cursor";
 
 * {
     box-sizing: border-box;
     font-size: 16px;
     font-family: $font_prim;
+    cursor: none;
+    user-select: none;
 }
 
 body {

@@ -38,7 +38,7 @@ export default function Nav() {
         }, 2000);
     }, [linksData]);
 
-    //prevent links default function
+    //prevent links default function ----------------
     const links = document.querySelectorAll(".link");
 
     function preventLinks(event) {
