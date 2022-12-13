@@ -1,13 +1,14 @@
 main {
     @include flex_col;
-    background-color: $color_pri_l1;
+    background-color: rgba($color_pri_l1, 0.7);
     // margin: 0 20px;
     width: 90%;
     height: 75%;
     border-radius: 10px;
-    opacity: 0.7;
+    // opacity: 0.7;
     .content {
-        padding: 20px;
+        height: 100%;
+        width: 100%;
     }
 }
 

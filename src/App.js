@@ -18,11 +18,14 @@ export default function App() {
 
     const [pageNow, setPageNow] = useState("home");
     const [linksData, setLinksData] = useState(links_data);
+    const [first, setFirst] = useState(true);
+
     return (
         <MyContext.Provider
             value={{
                 pageNow: [pageNow, setPageNow],
                 linksData: [linksData, setLinksData],
+                first: [first, setFirst],
             }}
         >
             <Router>

@@ -1,18 +1,17 @@
 import { React, useContext, useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "./App";
 
 export default function Nav() {
     const [pageNow, setPageNow] = useContext(MyContext).pageNow;
     const [linksData, setLinksData] = useContext(MyContext).linksData;
     const [isChangeNow, setIsChangeNow] = useState(false);
+    const navigate = useNavigate();
 
     //cahnege page finction -----------------------------
 
     function changePage(event, para) {
-        // if (event.target.dataset.name != pageNow && isChangeNow == false) {
-        //     setPageNow(event.target.dataset.name);
-        // }
+        //change links data ----------------------------------
         if (!para.now && isChangeNow == false) {
             setLinksData((prev) => {
                 return prev.map((data) => {
@@ -23,12 +22,15 @@ export default function Nav() {
                     } else {
                         return data;
                     }
-                    // return para == data.name
-                    //     ? { ...data, now: true }
-                    //     : { ...data, now: false };
                 });
             });
         }
+
+        //delay redirection page ------------------------------
+        event.preventDefault();
+        setTimeout(() => {
+            navigate(para.name == "home" ? `/` : `/${para.name}`);
+        }, 1000);
     }
 
     useEffect(() => {

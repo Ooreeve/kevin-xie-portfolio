@@ -38,7 +38,7 @@ const Cursor = () => {
                 cursor_outter.classList.remove("cursor_scale_ani");
                 cursor_inner.classList.remove("cursor_scale_ani");
                 document.addEventListener("click", add_cursor_ani);
-            }, 700);
+            }, 1000);
         }
         document.addEventListener("click", add_cursor_ani);
     }, []);
