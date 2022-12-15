@@ -4,15 +4,16 @@ import Circle from "./home/Circle";
 import { MyContext } from "./App";
 
 const Home = () => {
-    function ranNum(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    //create background circles -------------------
     const [circleStyles, setCircleStyles] = useState([]);
     const [titleStyles, setTitleStyles] = useState({});
     const [first, setFirst] = useContext(MyContext).first;
 
+    //ranged random number function -------------------
+    function ranNum(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    // circle animation function ----------------
     function containerOutterAni() {
         setCircleStyles((prev) => {
             return prev.map((item) => {
@@ -30,7 +31,8 @@ const Home = () => {
     }
 
     useEffect(() => {
-        for (let i = 0; i < 25; i++) {
+        //set circles styles --------------------------
+        for (let i = 0; i < 30; i++) {
             const containerSize = ranNum(50, 400);
             setCircleStyles((prev) => [
                 ...prev,
@@ -51,7 +53,7 @@ const Home = () => {
                 },
             ]);
         }
-
+        // title animation ------------------------
         if (first) {
             setTimeout(() => {
                 containerOutterAni();
@@ -70,6 +72,7 @@ const Home = () => {
         }
     }, []);
 
+    //create background circles -------------------
     const cicleElements = circleStyles.map((item) => {
         return (
             <Circle
@@ -80,7 +83,6 @@ const Home = () => {
             />
         );
     });
-    console.log(first);
 
     return (
         <div className="home">

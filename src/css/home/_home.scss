@@ -60,6 +60,8 @@
                 position: absolute;
                 overflow: hidden;
                 border-radius: 50%;
+                box-shadow: $color_sec_d1 0px 0px 10px 5px,
+                    inset $color_sec_d1 0px 0px 10px 5px;
                 .circle {
                     width: 1000px;
                     position: absolute;

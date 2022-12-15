@@ -1,12 +1,32 @@
 import { React, useContext, useEffect, useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { MyContext } from "./App";
 
 export default function Nav() {
-    const [pageNow, setPageNow] = useContext(MyContext).pageNow;
     const [linksData, setLinksData] = useContext(MyContext).linksData;
     const [isChangeNow, setIsChangeNow] = useState(false);
     const navigate = useNavigate();
+    const [first, setFirst] = useContext(MyContext).first;
+
+    //change linksData according to url ------------------
+    const path_now = useLocation().pathname.substring(1, 10);
+
+    useEffect(() => {
+        if (first) {
+            setLinksData((prev) => {
+                return prev.map((data) => {
+                    if (path_now == "" && data.name == "home") {
+                        return { ...data, now: true };
+                    } else if (path_now == data.name) {
+                        setFirst(false);
+                        return { ...data, now: true };
+                    } else {
+                        return data;
+                    }
+                });
+            });
+        }
+    }, []);
 
     //cahnege page finction -----------------------------
 
@@ -28,9 +48,11 @@ export default function Nav() {
 
         //delay redirection page ------------------------------
         event.preventDefault();
-        setTimeout(() => {
-            navigate(para.name == "home" ? `/` : `/${para.name}`);
-        }, 1000);
+        if (isChangeNow == false) {
+            setTimeout(() => {
+                navigate(para.name == "home" ? `/` : `/${para.name}`);
+            }, 1000);
+        }
     }
 
     useEffect(() => {
@@ -41,22 +63,22 @@ export default function Nav() {
     }, [linksData]);
 
     //prevent links default function ----------------
-    const links = document.querySelectorAll(".link");
+    // const links = document.querySelectorAll(".link");
 
-    function preventLinks(event) {
-        event.preventDefault();
-    }
+    // function preventLinks(event) {
+    //     event.preventDefault();
+    // }
 
-    useEffect(() => {
-        links.forEach((link) => {
-            link.addEventListener("click", preventLinks);
-        });
-        setTimeout(() => {
-            links.forEach((link) => {
-                link.removeEventListener("click", preventLinks);
-            });
-        }, 2000);
-    }, [linksData]);
+    // useEffect(() => {
+    //     links.forEach((link) => {
+    //         link.addEventListener("click", preventLinks);
+    //     });
+    //     setTimeout(() => {
+    //         links.forEach((link) => {
+    //             link.removeEventListener("click", preventLinks);
+    //         });
+    //     }, 2000);
+    // }, [linksData]);
 
     //creat links elements ----------------------------
 

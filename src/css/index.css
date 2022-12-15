@@ -59,23 +59,6 @@ nav .link_container .link_bg {
   position: absolute;
   z-index: -2;
 }
-nav .link_bg_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: -2;
-}
-nav .link_bg_container .link_bg {
-  width: 80px;
-  height: 80px;
-  margin: 0 3vw;
-  border-radius: 50%;
-  position: relative;
-  background-color: #61af80;
-  opacity: 0;
-}
 nav .fake_main_curtain {
   position: absolute;
   top: 160px;
@@ -301,7 +284,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(205, 249, 223, 0.7);
+  background-color: rgba(205, 249, 223, 0.3);
   width: 90%;
   height: 75%;
   border-radius: 10px;
@@ -535,6 +518,7 @@ footer {
   position: absolute;
   overflow: hidden;
   border-radius: 50%;
+  box-shadow: #bd5b00 0px 0px 10px 5px, inset #bd5b00 0px 0px 10px 5px;
 }
 .home .bg .circle_container_outter .circle_container .circle {
   width: 1000px;

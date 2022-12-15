@@ -47,20 +47,20 @@ nav {
             z-index: -2;
         }
     }
-    .link_bg_container {
-        @include flex_row;
-        position: absolute;
-        z-index: -2;
-        .link_bg {
-            width: 80px;
-            height: 80px;
-            margin: 0 3vw;
-            border-radius: 50%;
-            position: relative;
-            background-color: $color_pri;
-            opacity: 0;
-        }
-    }
+    // .link_bg_container {
+    //     @include flex_row;
+    //     position: absolute;
+    //     z-index: -2;
+    //     .link_bg {
+    //         width: 80px;
+    //         height: 80px;
+    //         margin: 0 3vw;
+    //         border-radius: 50%;
+    //         position: relative;
+    //         background-color: $color_pri;
+    //         opacity: 0;
+    //     }
+    // }
     .fake_main_curtain {
         position: absolute;
         top: 160px;
