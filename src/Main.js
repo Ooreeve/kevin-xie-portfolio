@@ -1,8 +1,8 @@
 import { React, useContext, useEffect, useState, useRef } from "react";
 
 import { Routes, Route } from "react-router-dom";
-import About from "./About";
-import Home from "./Home";
+import About from "./about/About";
+import Home from "./home/Home";
 import Works from "./Works";
 import Contact from "./Contact";
 import { MyContext } from "./App";
@@ -27,6 +27,7 @@ export default function Main() {
                     <Route path="/works" element={<Works />} />
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
+                <div className="content_bg"></div>
             </div>
         </main>
     );

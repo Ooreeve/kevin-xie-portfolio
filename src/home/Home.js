@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { React, useEffect, useState, useContext } from "react";
-import Circle from "./home/Circle";
-import { MyContext } from "./App";
+import Circle from "../component/Circle";
+import { MyContext } from "../App";
 
 const Home = () => {
     const [circleStyles, setCircleStyles] = useState([]);
@@ -32,7 +32,7 @@ const Home = () => {
 
     useEffect(() => {
         //set circles styles --------------------------
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 20; i++) {
             const containerSize = ranNum(50, 400);
             setCircleStyles((prev) => [
                 ...prev,
@@ -57,10 +57,10 @@ const Home = () => {
         if (first) {
             setTimeout(() => {
                 containerOutterAni();
-            }, 1000);
+            }, 1500);
             setTimeout(() => {
                 setTitleStyles({ opacity: "1" });
-            }, 3000);
+            }, 3500);
             setFirst(false);
         } else {
             setTimeout(() => {
@@ -73,7 +73,7 @@ const Home = () => {
     }, []);
 
     //create background circles -------------------
-    const cicleElements = circleStyles.map((item) => {
+    const circleElements = circleStyles.map((item) => {
         return (
             <Circle
                 key={item.id}
@@ -93,7 +93,7 @@ const Home = () => {
                 <h2>Portfolio</h2>
             </div>
             <div className="title_bg" style={titleStyles}></div>
-            <div className="bg">{cicleElements}</div>
+            <div className="bg">{circleElements}</div>
         </div>
     );
 };

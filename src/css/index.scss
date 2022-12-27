@@ -8,11 +8,12 @@
 @import "cursor";
 @import "home/home";
 @import "about/about";
+@import "about/intro";
 
 * {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: $font_prim;
+    font-family: $font_prim_2;
     cursor: none;
     user-select: none;
 }

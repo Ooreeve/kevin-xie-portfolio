@@ -14,31 +14,34 @@
         }
         @include flex_col;
         h1 {
-            font-size: 7rem;
+            font-size: 6rem;
             color: $color_pri_d1;
-            margin: 0 0 30px 0;
-            font-weight: 500;
+            margin-top: -20px;
+            font-weight: 400;
+            padding-right: 50px;
             span {
-                font-size: 7rem;
+                font-size: 6rem;
                 color: $color_pri_d1;
                 // -webkit-text-stroke: 1px $color_pri_d1;
             }
         }
         h2 {
-            font-size: 5rem;
+            font-size: 2rem;
             color: $color_pri_d1;
-            font-weight: 200;
+            font-family: $font_sec_1;
+            font-weight: 300;
+            padding-left: 400px;
         }
     }
     .title_bg {
         content: "";
         width: 50%;
         height: 60%;
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(25px);
         position: absolute;
         z-index: 1;
         border-radius: 20px;
-        border: solid 3px rgba($color_pri_l1, 0.5);
+        border: solid 2px rgba($color_pri_d1, 0.5);
         opacity: 0;
         transition: opacity 1s;
     }
