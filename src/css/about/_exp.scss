@@ -1,0 +1,119 @@
+.exp {
+    @include flex_col;
+    position: relative;
+    gap: 50px;
+    * {
+        color: $color_pri_d2;
+    }
+    h1 {
+        font-size: 5rem;
+        color: $color_pri_d1;
+        opacity: 0;
+    }
+    .band {
+        overflow: hidden;
+        width: 950px;
+        height: 80px;
+        @include flex_col;
+        border-radius: 100px;
+        position: absolute;
+        top: 295px;
+        opacity: 0;
+        z-index: 5;
+        h2 {
+            position: relative;
+            font-size: 3rem;
+            font-family: $font_sec_1;
+            color: $color_pri_d1;
+            z-index: 5;
+            text-shadow: 0 0 10px white;
+        }
+        img {
+            position: absolute;
+            transform: scale(0.6);
+            animation: band_img 0.5s infinite alternate;
+        }
+    }
+    .exp_block_container {
+        @include flex_row;
+        gap: 30px;
+        * {
+            font-family: $font_sec_1;
+        }
+        .exp_block {
+            width: 330px;
+            height: 400px;
+            background-color: $color_pri_l2;
+            border-radius: 60px;
+            @include flex_col(flex-start, center);
+            padding: 50px 20px 30px 20px;
+            opacity: 0;
+            overflow: hidden;
+            h3 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            .time {
+                font-size: 1.3rem;
+                margin-bottom: 115px;
+            }
+            .descr {
+                padding: 0 25px;
+                @include flex_col;
+                height: 200px;
+                p {
+                    font-size: 1.2rem;
+                    text-align: center;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}
+@keyframes band_img {
+    0% {
+        transform: scale(0.65);
+    }
+}
+@keyframes h1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes band {
+    0% {
+        opacity: 0;
+        width: 1100px;
+    }
+    33.3% {
+        opacity: 1;
+        width: 1100px;
+    }
+    50% {
+        opacity: 1;
+        width: 1100px;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes exp_block {
+    0% {
+        opacity: 0;
+        height: 0;
+        margin-top: 150px;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes time {
+    0% {
+        margin-bottom: -50px;
+    }
+    100% {
+    }
+}

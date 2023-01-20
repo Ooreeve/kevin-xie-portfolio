@@ -1,161 +1,165 @@
-.intro {
-    position: relative;
-    @include flex_row;
-    width: 100%;
-    height: 100%;
-    color: $color_pri_d1;
-    padding-left: 50px;
-    opacity: 0;
-    * {
-        font-family: $font_sec_1;
-        margin: 0;
-        padding: 0;
-    }
-    .left {
-        width: 50%;
-        height: 100%;
-        @include flex_col(center, right);
-        text-align: right;
-        padding-right: 50px;
-        margin-top: -50px;
-        overflow: hidden;
+.about {
+    .intro {
         position: relative;
-        h1,
-        h2,
-        h3 {
-            opacity: 0;
-        }
-        h1 {
-            font-size: 5rem;
-            text-transform: uppercase;
-            font-family: $font_prim_2;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-            span {
-                font-size: 2.6rem;
-                color: $color_sec_d2;
-                font-weight: 500;
-            }
-        }
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            span {
-                font-size: 1.5rem;
-                font-weight: 700;
-            }
-        }
-    }
-    .right {
-        width: 50%;
+        @include flex_row;
+        width: 100%;
         height: 100%;
-        @include flex_col(center, left);
-        .p_container {
-            width: 470px;
-            height: 500px;
-            overflow: hidden;
-            border: solid 2px $color_pri_d2;
-            border-radius: 20px;
-            @include flex_col(center, left);
-            padding: 0 50px;
-            opacity: 0;
-            p:first-child {
-                padding-bottom: 20px;
-            }
-            p {
-                font-size: 1.2rem;
-                line-height: 1.8rem;
-            }
-        }
-    }
-    .circle_container_outter {
-        position: absolute;
-        width: 220px;
-        height: 220px;
-        @include flex_col;
-        top: 70px;
-        left: 610px;
-        transform: translate(85px, 120px);
-        .circle_container {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            overflow: hidden;
-            border-radius: 50%;
-            animation: circle_spin 30s linear infinite;
-            .circle {
-                width: 1000px;
-                position: absolute;
-            }
-        }
-    }
-}
-//animation
-@keyframes intro_start {
-    0% {
+        color: $color_pri_d1;
+        padding-left: 50px;
         opacity: 0;
+        * {
+            font-family: $font_sec_1;
+            margin: 0;
+            padding: 0;
+        }
+        .left {
+            width: 50%;
+            height: 100%;
+            @include flex_col(center, right);
+            text-align: right;
+            padding-right: 50px;
+            margin-top: -30px;
+            overflow: hidden;
+            position: relative;
+            h1,
+            h2,
+            h3 {
+                opacity: 0;
+            }
+            h1 {
+                font-size: 5rem;
+                text-transform: uppercase;
+                font-family: $font_prim_2;
+                margin-bottom: 20px;
+                position: relative;
+                font-weight: 600;
+            }
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 500;
+                margin-bottom: 10px;
+                span {
+                    font-size: 2.6rem;
+                    color: $color_sec_d2;
+                    font-weight: 500;
+                }
+            }
+            h3 {
+                font-size: 1.2rem;
+                font-weight: 500;
+                span {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                }
+            }
+        }
+        .right {
+            width: 50%;
+            height: 100%;
+            @include flex_col(center, left);
+            .p_container {
+                width: 470px;
+                height: 500px;
+                overflow: hidden;
+                // border: solid 2px $color_pri_d2;
+                background-color: $color_pri_l2;
+                border-radius: 15px;
+                @include flex_col(center, left);
+                padding: 0 50px;
+                opacity: 0;
+                p:first-child {
+                    padding-bottom: 20px;
+                }
+                p {
+                    font-size: 1.2rem;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+        .circle_container_outter {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            @include flex_col;
+            top: 90px;
+            left: 610px;
+            transform: translate(85px, 120px);
+            .circle_container {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                overflow: hidden;
+                border-radius: 50%;
+                animation: circle_spin 30s linear infinite;
+                .circle {
+                    width: 1000px;
+                    position: absolute;
+                }
+            }
+        }
     }
-    100% {
-        opacity: 1;
+    //animation
+    @keyframes intro_start {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
-}
-@keyframes p_move {
-    0% {
-        width: 0;
-        height: 0;
-        padding: 0;
+    @keyframes p_move {
+        0% {
+            width: 0;
+            height: 0;
+            padding: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
-    100% {
-        opacity: 1;
-    }
-}
 
-@keyframes circle_spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes circle_move {
-    0% {
-        transform: translate(85px, 120px);
-    }
-    100% {
-        transform: translate(0px, 0px);
-    }
-}
-@keyframes h_move {
-    0% {
-        transform: translateX(100%);
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes h1_move {
-    0% {
-        transform: translateX(100%);
-        opacity: 1;
-    }
-    65% {
-        transform: translateX(-20%);
-        z-index: 0;
-    }
-    66% {
-        z-index: 1;
+    @keyframes circle_spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
-    100% {
-        opacity: 1;
-        z-index: 1;
+    @keyframes circle_move {
+        0% {
+            transform: translate(85px, 120px);
+        }
+        100% {
+            transform: translate(0px, 0px);
+        }
+    }
+    @keyframes h_move {
+        0% {
+            transform: translateX(100%);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes h1_move {
+        0% {
+            transform: translateX(100%);
+            opacity: 1;
+        }
+        65% {
+            transform: translateX(-20%);
+            z-index: 0;
+        }
+        66% {
+            z-index: 1;
+        }
+
+        100% {
+            opacity: 1;
+            z-index: 1;
+        }
     }
 }

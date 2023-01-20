@@ -1,0 +1,141 @@
+.edu {
+    @include flex_col;
+    h1 {
+        font-size: 5rem;
+        color: $color_pri_d1;
+        margin: 10px 0 0 500px;
+        opacity: 0;
+    }
+    .edu_bar_container {
+        margin-top: 10px;
+        .edu_bar:nth-child(1) {
+            .background {
+                height: 110px;
+                width: 1000px;
+                top: -50px;
+                left: 70px;
+            }
+        }
+        .edu_bar {
+            position: relative;
+            margin-bottom: 30px;
+            * {
+                font-family: $font_sec_1;
+                color: $color_pri_d2;
+            }
+            .front {
+                width: 850px;
+                height: 95px;
+                background-color: $color_pri_l2;
+                border-radius: 100px;
+                opacity: 0;
+                @include flex_row(space-between, center);
+                .left {
+                    width: 230px;
+                    height: calc(95px - 14px);
+                    margin: 7px;
+                    border: $color_sec solid 2px;
+                    border-radius: 100px;
+                    @include flex_col;
+                    .p_container {
+                        @include flex_col(center, flex-end);
+                        .year {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+                .right {
+                    margin-right: 40px;
+                    @include flex_col(center, flex-end);
+                    .school {
+                        font-size: 1.2rem;
+                    }
+                    .major {
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .background {
+                position: absolute;
+                width: 850px;
+                height: 95px;
+                border-radius: 100px;
+                top: -15px;
+                left: 15px;
+                overflow: hidden;
+                opacity: 0;
+                @include flex_row;
+                img:nth-child(1) {
+                    transform-origin: left top;
+                    // transform: scale(0.6) translateX(0%);
+                    position: absolute;
+                    left: 0;
+                    animation: background_img_l 50s infinite linear;
+                }
+                img:nth-child(2) {
+                    transform-origin: left top;
+                    // transform: scale(0.6) scaleX(-100%) translateX(-200%);
+                    position: absolute;
+                    left: 0;
+                    animation: background_img_r 50s infinite linear;
+                }
+            }
+        }
+    }
+}
+@keyframes h1 {
+    0% {
+        transform: translateX(1500px);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes front {
+    0% {
+        transform: translateX(1500px);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes background {
+    0% {
+        transform: translateX(1500px);
+        width: 2000px;
+        opacity: 1;
+    }
+    75% {
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes background_img_l {
+    0% {
+        transform: scale(0.6) translateX(0%);
+    }
+    50% {
+        transform: scale(0.6) translateX(-100%);
+    }
+    50.01% {
+        transform: scale(0.6) translateX(100%);
+    }
+    100% {
+        transform: scale(0.6) translateX(0%);
+    }
+}
+@keyframes background_img_r {
+    0% {
+        transform: scale(0.6) scaleX(-100%) translateX(-200%);
+    }
+    50% {
+        transform: scale(0.6) scaleX(-100%) translateX(-100%);
+    }
+    100% {
+        transform: scale(0.6) scaleX(-100%) translateX(0%);
+    }
+}

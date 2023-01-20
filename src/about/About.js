@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import Edu from "./Edu";
 import Exp from "./Exp";
 import Intro from "./Intro";
 import Skill from "./Skill";
 import Hobby from "./Hobby";
 
+export const AboutContext = createContext();
 export default function About() {
     const [slideNow, setSlideNow] = useState(0);
 
@@ -81,11 +82,13 @@ export default function About() {
     });
 
     return (
-        <div className="about">
-            <div className="slider" style={sliderStyles}>
-                {slide_elements}
+        <AboutContext.Provider value={{ slideNow: [slideNow, setSlideNow] }}>
+            <div className="about">
+                <div className="slider" style={sliderStyles}>
+                    {slide_elements}
+                </div>
+                <div className="slide_bar">{slide_bar_btn_elements}</div>
             </div>
-            <div className="slide_bar">{slide_bar_btn_elements}</div>
-        </div>
+        </AboutContext.Provider>
     );
 }

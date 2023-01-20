@@ -1,0 +1,133 @@
+.about {
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .skill {
+        @include flex_col;
+        .h1_container {
+            overflow: hidden;
+            h1 {
+                text-transform: uppercase;
+                color: $color_pri_d1;
+                font-size: 4.5rem;
+                margin-top: 30px;
+                opacity: 0;
+            }
+        }
+        .h2_container {
+            overflow: hidden;
+            h2 {
+                color: $color_pri_d2;
+                font-size: 1.5rem;
+                margin: 10px 0 40px 0;
+                font-family: $font_sec_1;
+                opacity: 0;
+            }
+        }
+        .skill_bar_container {
+            @include flex_row;
+            transform-origin: center;
+            opacity: 0;
+            .plus {
+                font-size: 3rem;
+                color: $color_pri_d2;
+                font-family: $font_sec_1;
+                margin: 15px;
+            }
+            .skill_bar {
+                border-radius: 100px;
+                width: 65px;
+                height: 350px;
+                background-color: $color_pri_l2;
+                margin: 0 15px;
+                @include flex_col;
+                .progress_container {
+                    width: 50px;
+                    height: 65%;
+                    @include flex_col(flex-end, center);
+                    .progress_bar {
+                        width: 100%;
+                        overflow: hidden;
+                        border-radius: 100px;
+                        transition: height 2s 1.5s;
+                        position: relative;
+                        .progress_img_1 {
+                            position: absolute;
+                            transform-origin: left top;
+                            transform: scale(0.3);
+                            top: 0;
+                            animation: progress_img_1 30s infinite linear;
+                        }
+                        .progress_img_2 {
+                            position: absolute;
+                            transform-origin: left top;
+                            transform: scale(0.3) scaleY(-100%)
+                                translateY(-200%);
+                            animation: progress_img_2 30s infinite linear;
+                        }
+                    }
+                }
+                .skill_icon {
+                    margin: 10px 0 0 0;
+                    width: 35px;
+                    margin: 15px 0 15px 0;
+                }
+                .skill_name {
+                    color: $color_pri_d2;
+                    font-family: $font_sec_1;
+                    text-transform: uppercase;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+@keyframes skill_bar {
+    0% {
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes h1 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes h2 {
+    0% {
+        transform: translateY(-200%);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes progress_img_1 {
+    0% {
+        transform: scale(0.3) translateY(0%);
+    }
+    50% {
+        transform: scale(0.3) translateY(-100%);
+    }
+    50.01% {
+        transform: scale(0.3) translateY(100%);
+    }
+    100% {
+        transform: scale(0.3) translateY(0%);
+    }
+}
+@keyframes progress_img_2 {
+    0% {
+        transform: scale(0.3) scaleY(-100%) translateY(-200%);
+    }
+    50% {
+        transform: scale(0.3) scaleY(-100%) translateY(-100%);
+    }
+    100% {
+        transform: scale(0.3) scaleY(-100%) translateY(0%);
+    }
+}
