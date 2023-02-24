@@ -83,7 +83,7 @@ export default function Edu() {
 
     return (
         <div className="edu">
-            <h1 style={yet ? { animation: "h1 2s 0.5s forwards" } : {}}>
+            <h1 style={yet ? { animation: "edu_h1 2s 0.5s forwards" } : {}}>
                 My Education
             </h1>
             <div className="edu_bar_container">{edu_bars}</div>

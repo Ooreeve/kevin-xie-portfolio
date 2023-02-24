@@ -157,7 +157,7 @@ export default function Hobby() {
 
     return (
         <div className="hobby">
-            <h1 style={yet ? { animation: "h1 2s 0.5s forwards" } : {}}>
+            <h1 style={yet ? { animation: "hobby_h1 2s 0.5s forwards" } : {}}>
                 My <br /> Hobbies
             </h1>
             <div className="b_container">

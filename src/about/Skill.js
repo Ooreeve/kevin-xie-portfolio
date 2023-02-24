@@ -64,7 +64,11 @@ export default function Skill() {
     return (
         <div className="skill">
             <div className="h1_container">
-                <h1 style={yet ? { animation: "h1 2s 0.5s forwards" } : {}}>
+                <h1
+                    style={
+                        yet ? { animation: "skill_h1 2s 0.5s forwards" } : {}
+                    }
+                >
                     my skill
                 </h1>
             </div>

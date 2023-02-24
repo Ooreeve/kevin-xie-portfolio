@@ -58,7 +58,7 @@ export default function Exp() {
 
     return (
         <div className="exp">
-            <h1 style={yet ? { animation: "h1 2s 0.5s forwards" } : {}}>
+            <h1 style={yet ? { animation: "exp_h1 2s 0.5s forwards" } : {}}>
                 My Experience
             </h1>
             <div

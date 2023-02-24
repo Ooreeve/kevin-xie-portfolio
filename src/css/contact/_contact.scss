@@ -1,0 +1,240 @@
+.contact {
+    @include flex_col;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    h1 {
+        position: relative;
+        z-index: 5;
+        font-size: 5rem;
+        color: $color_pri_d1;
+        position: absolute;
+        opacity: 0;
+        transform: translate(-360px, -225px);
+    }
+    .contact_container {
+        opacity: 0;
+        * {
+            font-family: $font_sec_1;
+        }
+        @include flex_row(flex-end, center);
+        background-color: $color_pri_l2;
+        width: 1100px;
+        height: 450px;
+        border-radius: 30px;
+        margin-top: 30px;
+        .email_address {
+            height: 100%;
+            @include flex_col(flex-end, center);
+            overflow: hidden;
+            h2 {
+                opacity: 0;
+                text-align: right;
+                font-size: 8.5rem;
+                line-height: 7.5rem;
+                color: $color_pri_d2;
+                margin: 10px;
+                user-select: text;
+                transition: all 0.5s;
+                &::selection {
+                    background-color: $color_sec;
+                    color: #ffffff;
+                }
+                &:hover {
+                    color: $color_sec_l2;
+                }
+            }
+        }
+        .message_box {
+            position: relative;
+            @include flex_col;
+            margin-bottom: 50px;
+            h3 {
+                opacity: 0;
+                color: $color_sec_d3;
+                font-size: 1.8rem;
+                margin-bottom: 5px;
+            }
+            .form_container {
+                opacity: 0;
+                position: relative;
+                width: 370px;
+                overflow: hidden;
+                border-radius: 30px;
+                @include flex_col;
+                padding: 10px;
+                %input {
+                    width: 100%;
+                    height: 60px;
+                    border-radius: 20px;
+                    border: solid 0px transparent;
+                    background-color: #ffffffbb;
+                    padding: 2px 0 0 20px;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $color_pri_d2;
+                    &:focus {
+                        outline: none;
+                        background-color: #ffffffee;
+                        transition: all 0.5s;
+                    }
+                    &::placeholder {
+                        color: $color_pri_d2;
+                        opacity: 0.7;
+                    }
+                }
+                form {
+                    @include flex_col;
+                    gap: 10px;
+                    z-index: 5;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    .name {
+                        @extend %input;
+                    }
+                    .email {
+                        @extend %input;
+                    }
+                    .message {
+                        @extend %input;
+                        height: 300px;
+                        padding-top: 20px;
+                        line-height: 1.5rem;
+                    }
+                    .submit {
+                        @extend %input;
+                        color: $color_sec_d3;
+                        font-size: 1.6rem;
+                        text-transform: uppercase;
+                        background-color: #ffffff;
+                        transition: all 0.3s;
+                        border: solid 3px white;
+                        padding: 2px 0 0 0;
+
+                        &:hover {
+                            background-color: $color_sec_d3;
+                            color: white;
+                        }
+                    }
+                }
+                img {
+                    position: absolute;
+                    animation: form_img 100s infinite linear;
+                    @keyframes form_img {
+                        0% {
+                            transform: rotate(0deg) scale(0.6);
+                        }
+                        100% {
+                            transform: rotate(-360deg) scale(0.6);
+                        }
+                    }
+                }
+            }
+        }
+        .smp_box {
+            height: 100%;
+            margin-bottom: 50px;
+            overflow: hidden;
+            @include flex_col(flex-end, center);
+            .icon_container {
+                opacity: 0;
+                @include flex_col;
+                .icon {
+                    width: 40px;
+                    margin: 10px 20px;
+                    transition: all 0.3s;
+                    &:hover {
+                        transform: scale(1.15);
+                    }
+                }
+            }
+        }
+    }
+}
+@keyframes contact_h1 {
+    0% {
+        opacity: 0;
+        transform: translate(0px, 0px);
+        color: #ffffff;
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        color: #ffffff;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes contact_container {
+    0% {
+        opacity: 0;
+        width: 2000px;
+        height: 120px;
+        margin-top: 0px;
+        background-color: $color_sec;
+    }
+    50% {
+        opacity: 1;
+        width: 2000px;
+        height: 120px;
+        margin-top: 0px;
+        background-color: $color_sec;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes contact_form_container {
+    0% {
+        opacity: 1;
+        transform: translate(0px, 620px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes contact_h3 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes contact_h3_move {
+    0% {
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+@keyframes contact_h2 {
+    0% {
+        opacity: 0.4;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 0.4;
+        transform: translateX(0%);
+    }
+}
+@keyframes contact_icon {
+    0% {
+        opacity: 1;
+        transform: translateX(-150%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

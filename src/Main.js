@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./about/About";
 import Home from "./home/Home";
 import Works from "./Works";
-import Contact from "./Contact";
+import Contact from "./contact/Contact";
 import { MyContext } from "./App";
 
 export default function Main() {
