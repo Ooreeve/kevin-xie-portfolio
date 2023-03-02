@@ -3,7 +3,7 @@ import { React, useContext, useEffect, useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "./about/About";
 import Home from "./home/Home";
-import Works from "./Works";
+import Works from "./works/Works";
 import Contact from "./contact/Contact";
 import { MyContext } from "./App";
 
