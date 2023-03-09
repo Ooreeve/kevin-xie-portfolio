@@ -7,65 +7,225 @@
         padding: 0;
         margin: 0;
     }
-    h1 {
-        position: relative;
+    .scroll_sign {
+        opacity: 0;
+        position: absolute;
+        left: 150px;
+        // top: 100px;
+        @include flex_col;
+        gap: 10px;
         z-index: 5;
-        font-size: 5rem;
-        color: $color_pri_d1;
-        // opacity: 0;
-        bottom: -170px;
-        right: 50px;
-        text-align: center;
-        line-height: 5rem;
+        border: solid 2px $color_pri_d2;
+        padding: 15px 5px;
+        border-radius: 100px;
+        transition: top 0.3s;
+        * {
+            background-color: $color_pri_d2;
+        }
+        .up {
+            width: 30px;
+            height: 0px;
+            clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+            animation: works_scroll_sign_up 0.5s alternate infinite;
+            transition: opacity 0.3s, height 0.3s;
+        }
+        .bar {
+            width: 8px;
+            height: 50px;
+            border-radius: 100px;
+        }
+        .down {
+            width: 30px;
+            height: 17px;
+            clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+            animation: works_scroll_sign_down 0.5s alternate infinite;
+            transition: opacity 0.3s, height 0.3s;
+        }
     }
-    .box_container_wrapper {
+    .box_container {
         position: relative;
         width: 100%;
+        right: 40px;
         height: 80%;
-        overflow: hidden;
-        right: -100px;
-        .box_container {
-            @include flex_col(flex-start, flex-end);
+        @include flex_col(flex-start, flex-end);
+        gap: 30px;
+        overflow-y: hidden;
+        padding: 5px 0;
+        * {
+            font-family: $font_sec_1;
+            color: $color_pri_d1;
+        }
+        &::-webkit-scrollbar {
+            display: none; /* Hide the scrollbar on webkit-based browsers */
+        }
+        .box {
+            opacity: 0;
             position: relative;
-            width: 100%;
-            height: 100%;
-            gap: 35px;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            scroll-behavior: smooth;
-            &::-webkit-scrollbar {
-                display: none;
+            width: 72%;
+            height: 35%;
+            background-color: $color_pri_l2;
+            flex-shrink: 0;
+            overflow: hidden;
+            @include flex_row(space-between, center);
+            border-radius: 30px;
+            transition: box-shadow 0.3s;
+            &:hover {
+                box-shadow: 0px 0px 15px $color_sec_d2;
             }
-            &::-moz-scrollbar {
-                display: none;
-            }
-            &::-ms-scrollbar {
-                display: none;
-            }
-
-            .box {
+            .left {
                 position: relative;
-                width: 1200px;
-                height: 190px;
-                background-color: $color_sec;
-                flex-shrink: 0;
+                width: 10%;
+                height: 100%;
+                overflow: hidden;
+                clip-path: polygon(0 0, 100% 0, 30% 100%, 0 100%);
+                img {
+                    position: absolute;
+                    transform-origin: left top;
+                    &:first-child {
+                        animation: works_box_left_img_right 30s infinite linear;
+                        // transform: scale(0.4) translateX(0%);
+                    }
+                    &:last-child {
+                        animation: works_box_left_img_left 30s infinite linear;
+                        // transform: scaleX(-0.4) scaleY(0.4) translateX(-200%);
+                    }
+                }
+            }
+            .left_text {
+                height: 100%;
+                width: 25%;
+                @include flex_col;
+                gap: 10px;
+                .no {
+                    font-size: 3rem;
+                    font-weight: 700;
+                }
+                .box_title {
+                    font-size: 1.6rem;
+                    text-transform: capitalize;
+                    text-align: center;
+                    line-height: 2rem;
+                }
+            }
+            .desc {
+                width: 30%;
+                font-size: 1rem;
+                padding: 0 10px 0 25px;
+                line-height: 1.5rem;
+                text-align: center;
+            }
+            .right {
+                height: 100%;
+                width: 35%;
+                clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
         }
     }
-    .scroll_bar {
-        flex-shrink: 0;
-        height: 80%;
-        width: 20px;
-        background-color: $color_pri_l2;
-        border-radius: 10px;
-        @include flex_col(flex-start, center);
-        margin-left: 20px;
-        transform: scaleY(1.05) rotate(17.5deg);
-        .thumb {
-            width: 10px;
-            border-radius: 10px;
-            margin-top: 5px;
-            background-color: $color_pri_d3;
-        }
+    h1 {
+        position: absolute;
+        // right: 60px;
+        // bottom: 70px;
+        font-size: 5rem;
+        color: $color_pri_d1;
+        text-align: center;
+        line-height: 5rem;
+        opacity: 0;
+        transform: translate(680px, 200px);
+        z-index: 5;
+    }
+}
+
+@keyframes works_scroll_sign_up {
+    0% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(2px);
+    }
+}
+
+@keyframes works_scroll_sign_down {
+    0% {
+        transform: translateY(3px);
+    }
+    100% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes works_box_left_img_right {
+    0% {
+        transform: scale(0.4) translateX(0);
+    }
+    50% {
+        transform: scale(0.4) translateX(100%);
+    }
+    50.001% {
+        transform: scale(0.4) translateX(-100%);
+    }
+    100% {
+        transform: scale(0.4) translateX(0);
+    }
+}
+
+@keyframes works_box_left_img_left {
+    0% {
+        transform: scaleX(-0.4) scaleY(0.4) translateX(0);
+    }
+    50% {
+        transform: scaleX(-0.4) scaleY(0.4) translateX(-100%);
+    }
+    100% {
+        transform: scaleX(-0.4) scaleY(0.4) translateX(-200%);
+    }
+}
+
+@keyframes works_h1 {
+    0% {
+        opacity: 0;
+        transform: translate(0px, 0px);
+        font-size: 7rem;
+        line-height: 8rem;
+        color: $color_sec;
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        font-size: 7rem;
+        line-height: 8rem;
+        color: $color_sec;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes works_box {
+    0% {
+        transform: translateX(-150%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes works_scroll_sign {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes works_box_container {
+    100% {
+        overflow-y: scroll;
     }
 }
