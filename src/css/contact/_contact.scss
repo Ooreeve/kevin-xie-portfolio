@@ -67,6 +67,38 @@
                 border-radius: 30px;
                 @include flex_col;
                 padding: 10px;
+                .sended {
+                    position: absolute;
+                    width: calc(100% - 20px);
+                    height: calc(100% - 90px);
+                    top: 10px;
+                    background-color: $color_sec_l3;
+                    z-index: 5;
+                    border-radius: 20px;
+                    border: solid 3px $color_sec_d2;
+                    @include flex_col;
+                    line-height: 2.6rem;
+                    opacity: 0;
+                    .notice {
+                        color: $color_sec_d3;
+                        text-align: center;
+                        font-size: 1.5rem;
+                        opacity: 0;
+                        position: relative;
+                        z-index: 5;
+                    }
+                    .smile_icon {
+                        width: 150px;
+                        margin-top: 10px;
+                        opacity: 0;
+                        position: relative;
+                        z-index: 5;
+                    }
+                    .loading_icon {
+                        position: absolute;
+                        width: 50px;
+                    }
+                }
                 %input {
                     width: 100%;
                     height: 60px;
@@ -77,10 +109,11 @@
                     font-size: 1.2rem;
                     font-weight: 700;
                     color: $color_pri_d2;
+                    transition: all 0.5s;
+                    caret-color: $color_pri_d3;
                     &:focus {
                         outline: none;
                         background-color: #ffffffee;
-                        transition: all 0.5s;
                     }
                     &::placeholder {
                         color: $color_pri_d2;
@@ -111,18 +144,22 @@
                         color: $color_sec_d3;
                         font-size: 1.6rem;
                         text-transform: uppercase;
-                        background-color: #ffffff;
+                        background-color: $color_sec_l3;
                         transition: all 0.3s;
                         border: solid 3px white;
                         padding: 2px 0 0 0;
-
+                        transition: all 0.3s;
                         &:hover {
-                            background-color: $color_sec_d3;
-                            color: white;
+                            border: solid 3px $color_sec_d2;
+                            font-size: 1.8rem;
+                        }
+                        &:active {
+                            font-size: 1.6rem;
+                            transition: all 0.1s;
                         }
                     }
                 }
-                img {
+                .form_background_img {
                     position: absolute;
                     animation: form_img 100s infinite linear;
                     @keyframes form_img {
@@ -236,5 +273,51 @@
     100% {
         opacity: 1;
         transform: translateX(0%);
+    }
+}
+@keyframes contact_sended {
+    0% {
+        z-index: 6;
+        opacity: 0;
+    }
+    5% {
+        z-index: 6;
+        opacity: 1;
+    }
+    90% {
+        z-index: 6;
+        opacity: 1;
+    }
+    100% {
+        z-index: 5;
+        opacity: 0;
+    }
+}
+
+@keyframes contact_loading_icon {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes contact_smile_icon {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes contact_notice {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

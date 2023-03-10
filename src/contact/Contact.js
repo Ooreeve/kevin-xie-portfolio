@@ -1,5 +1,7 @@
 import { React, useEffect, useState, useContext } from "react";
 import { MyContext } from "../App";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, push } from "firebase/database";
 
 export default function Contact() {
     const [first, setFirst] = useContext(MyContext).first;
@@ -11,6 +13,17 @@ export default function Contact() {
         h2: {},
         icon_container: {},
         h3: {},
+    });
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const [sendedAni, setSendedAni] = useState({
+        sended: {},
+        notice: {},
+        smile_icon: {},
+        loading_icon: {},
     });
 
     const setAni = () => {
@@ -26,7 +39,7 @@ export default function Contact() {
             icon_container: { animation: "contact_icon 0.5s 3s forwards" },
             h3: {
                 animation:
-                    "h3 1s 3s forwards, contact_h3_move 0.5s forwards infinite alternate",
+                    "contact_h3 1s 3s forwards, contact_h3_move 0.5s forwards infinite alternate",
             },
         });
     };
@@ -45,10 +58,56 @@ export default function Contact() {
         }
     }, []);
 
-    //open-email-client
+    //open_email_client---------------------------------
     const mailToMe = () => {
         window.open("mailto:oorkin18@gmail.com");
     };
+
+    //handle_form_submit----------------------------------
+    const firebaseConfig = {
+        apiKey: "AIzaSyCHBTFEFVQS0FHd2jJwsS4eCDeWK-zFzMo",
+        authDomain: "my-portfolio-370107.firebaseapp.com",
+        projectId: "my-portfolio-370107",
+        storageBucket: "my-portfolio-370107.appspot.com",
+        messagingSenderId: "595118165942",
+        appId: "1:595118165942:web:de15d9f92bcd4c2b143b17",
+        measurementId: "G-1YRT10912L",
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+    function handle_submit(event) {
+        event.preventDefault();
+
+        const dbRef = ref(db, "contactFormData");
+        push(dbRef, formData);
+
+        setTimeout(() => {
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            });
+        }, 1000);
+
+        setSendedAni({
+            sended: { animation: "contact_sended 7s forwards" },
+            notice: { animation: "contact_notice 0.5s 2s forwards" },
+            smile_icon: { animation: "contact_smile_icon 0.5s 2s forwards" },
+            loading_icon: {
+                animation: "contact_loading_icon 1.5s linear infinite",
+            },
+        });
+
+        setTimeout(() => {
+            setSendedAni({
+                sended: {},
+                notice: {},
+                smile_icon: {},
+                loading_icon: {},
+            });
+        }, 10000);
+    }
 
     return (
         <div className="contact">
@@ -72,13 +131,40 @@ export default function Contact() {
                         className="form_container"
                         style={aniStyles.form_container}
                     >
-                        <form>
+                        <div className="sended" style={sendedAni.sended}>
+                            <p className="notice" style={sendedAni.notice}>
+                                Thanks!<br></br>Response coming soon.
+                            </p>
+                            <img
+                                src={require("../images/contact/positive.png")}
+                                alt="positive"
+                                className="smile_icon"
+                                style={sendedAni.smile_icon}
+                            />
+                            <img
+                                src={require("../images/contact/loading.png")}
+                                alt="loading"
+                                className="loading_icon"
+                                style={sendedAni.loading_icon}
+                            />
+                        </div>
+                        <form onSubmit={handle_submit}>
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
                                 placeholder="Name"
                                 className="name"
+                                required="required"
+                                onChange={(event) => {
+                                    setFormData((prev) => {
+                                        return {
+                                            ...prev,
+                                            name: event.target.value,
+                                        };
+                                    });
+                                }}
+                                value={formData.name}
                             />
                             <input
                                 type="email"
@@ -86,6 +172,16 @@ export default function Contact() {
                                 id="email"
                                 placeholder="Email"
                                 className="email"
+                                required="required"
+                                onChange={(event) => {
+                                    setFormData((prev) => {
+                                        return {
+                                            ...prev,
+                                            email: event.target.value,
+                                        };
+                                    });
+                                }}
+                                value={formData.email}
                             />
                             <textarea
                                 name="messgae"
@@ -94,6 +190,15 @@ export default function Contact() {
                                 rows="1"
                                 placeholder="Message"
                                 className="message"
+                                onChange={(event) => {
+                                    setFormData((prev) => {
+                                        return {
+                                            ...prev,
+                                            message: event.target.value,
+                                        };
+                                    });
+                                }}
+                                value={formData.message}
                             ></textarea>
                             <input
                                 type="submit"
@@ -105,6 +210,7 @@ export default function Contact() {
                         <img
                             src={require("../images/home/home_bg_1_tiny.png")}
                             alt="home_bg_1_tin"
+                            className="form_background_img"
                         />
                     </div>
                 </div>

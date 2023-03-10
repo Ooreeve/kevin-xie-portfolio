@@ -1505,6 +1505,41 @@ footer {
   align-items: center;
   padding: 10px;
 }
+.contact .contact_container .message_box .form_container .sended {
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 90px);
+  top: 10px;
+  background-color: #fff5ec;
+  z-index: 5;
+  border-radius: 20px;
+  border: solid 3px #e66300;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.6rem;
+  opacity: 0;
+}
+.contact .contact_container .message_box .form_container .sended .notice {
+  color: #ff5c00;
+  text-align: center;
+  font-size: 1.5rem;
+  opacity: 0;
+  position: relative;
+  z-index: 5;
+}
+.contact .contact_container .message_box .form_container .sended .smile_icon {
+  width: 150px;
+  margin-top: 10px;
+  opacity: 0;
+  position: relative;
+  z-index: 5;
+}
+.contact .contact_container .message_box .form_container .sended .loading_icon {
+  position: absolute;
+  width: 50px;
+}
 .contact .contact_container .message_box .form_container form .submit, .contact .contact_container .message_box .form_container form .message, .contact .contact_container .message_box .form_container form .email, .contact .contact_container .message_box .form_container form .name {
   width: 100%;
   height: 60px;
@@ -1515,11 +1550,12 @@ footer {
   font-size: 1.2rem;
   font-weight: 700;
   color: #5e7368;
+  transition: all 0.5s;
+  caret-color: #8caa9a;
 }
 .contact .contact_container .message_box .form_container form .submit:focus, .contact .contact_container .message_box .form_container form .message:focus, .contact .contact_container .message_box .form_container form .email:focus, .contact .contact_container .message_box .form_container form .name:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.9333333333);
-  transition: all 0.5s;
 }
 .contact .contact_container .message_box .form_container form .submit::-moz-placeholder, .contact .contact_container .message_box .form_container form .message::-moz-placeholder, .contact .contact_container .message_box .form_container form .email::-moz-placeholder, .contact .contact_container .message_box .form_container form .name::-moz-placeholder {
   color: #5e7368;
@@ -1549,16 +1585,21 @@ footer {
   color: #ff5c00;
   font-size: 1.6rem;
   text-transform: uppercase;
-  background-color: #ffffff;
+  background-color: #fff5ec;
   transition: all 0.3s;
   border: solid 3px white;
   padding: 2px 0 0 0;
+  transition: all 0.3s;
 }
 .contact .contact_container .message_box .form_container form .submit:hover {
-  background-color: #ff5c00;
-  color: white;
+  border: solid 3px #e66300;
+  font-size: 1.8rem;
 }
-.contact .contact_container .message_box .form_container img {
+.contact .contact_container .message_box .form_container form .submit:active {
+  font-size: 1.6rem;
+  transition: all 0.1s;
+}
+.contact .contact_container .message_box .form_container .form_background_img {
   position: absolute;
   animation: form_img 100s infinite linear;
 }
@@ -1669,6 +1710,48 @@ footer {
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+@keyframes contact_sended {
+  0% {
+    z-index: 6;
+    opacity: 0;
+  }
+  5% {
+    z-index: 6;
+    opacity: 1;
+  }
+  90% {
+    z-index: 6;
+    opacity: 1;
+  }
+  100% {
+    z-index: 5;
+    opacity: 0;
+  }
+}
+@keyframes contact_loading_icon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes contact_smile_icon {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes contact_notice {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 .works {
