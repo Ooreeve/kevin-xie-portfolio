@@ -78,9 +78,13 @@ export default function Contact() {
 
     function handle_submit(event) {
         event.preventDefault();
+        const submit_time = new Date();
 
         const dbRef = ref(db, "contactFormData");
-        push(dbRef, formData);
+
+        const final_data = { ...formData, time: `${submit_time}` };
+
+        push(dbRef, final_data);
 
         setTimeout(() => {
             setFormData({
