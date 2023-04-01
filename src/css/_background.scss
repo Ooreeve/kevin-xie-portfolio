@@ -11,8 +11,10 @@
         overflow: hidden;
         @include flex_col;
         img {
-            width: 2030px;
-            height: 1150px;
+            @media (max-width: 700px) {
+                width: 1900px;
+            }
+            width: 2500px;
             object-fit: cover;
             filter: blur(3px) brightness(0.3);
         }

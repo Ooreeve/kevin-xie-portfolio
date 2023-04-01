@@ -7,6 +7,7 @@ const Home = () => {
     const [circleStyles, setCircleStyles] = useState([]);
     const [titleStyles, setTitleStyles] = useState({});
     const [first, setFirst] = useContext(MyContext).first;
+    const w_with = window.innerWidth;
 
     //ranged random number function -------------------
     function ranNum(min, max) {
@@ -87,9 +88,7 @@ const Home = () => {
     return (
         <div className="home">
             <div className="title" style={titleStyles}>
-                <h1>
-                    <span>Kevin</span> Xie
-                </h1>
+                <h1>Kevin Xie</h1>
                 <h2>Portfolio</h2>
             </div>
             <div className="title_bg" style={titleStyles}></div>

@@ -4,6 +4,10 @@ import Box from "./Box";
 
 export default function Works() {
     const [first, setFirst] = useContext(MyContext).first;
+    const wWidth = useContext(MyContext).wWidth;
+    const wHeight = useContext(MyContext).wHeight;
+    const w_px = useContext(MyContext).w_px;
+
     const [scrollPosn, setScrollPosn] = useState(0);
     const [scrollSignStyles, setScrollSignStyles] = useState({ top: 100 });
     const [arrowStyles, setArrowStyles] = useState({
@@ -22,31 +26,31 @@ export default function Works() {
     const box_data = [
         {
             title: "kuon yagi portfolio clone",
-            desc: "The website is a clone of an award-winning personal site designed by Kuon Yagi, which received Honorable Mention on Awwwards.The contents of the site have been replaced with Hunter x Hunter manga materials.",
+            desc: "A clone of an award-winning personal site designed by Kuon Yagi, which received Honorable Mention on Awwwards. (Contents: Hunter x Hunter)",
             img: "kuon_yagi_portfolio_clone",
             url: "https://test-react-kuon.vercel.app/",
         },
         {
             title: "the craftsmen clone",
-            desc: "This website is a clone of a company portal owned by The Craftsmen, a web development company. It was awarded Site of the Day by Awwwards on May 27, 2022. The contents of the site have been replaced with Star Wars materials.",
+            desc: "A clone of a company portal owned by The Craftsmen, a web development company. It was awarded Site of the Day by Awwwards on May 27, 2022. (Contents: Star Wars)",
             img: "the_craftsmen_clone",
             url: "https://test-sass-thecraftsmen-kztnn6nyv-ooreeve.vercel.app/",
         },
         {
             title: "gravity fall introduction website",
-            desc: "This website is an introduction site for a well known cartoon Gravity Falls. The design is simple and straightforward without too many embellishments, and it is written using basic html, css and vanilla JavaScript.",
+            desc: "An introduction site for a cartoon Gravity Falls. The design is simple and straightforward, and it is written using basic html, css and vanilla JavaScript.",
             img: "gravity_fall_introduction_website",
             url: "https://test-vanilla-js-gravity-falls.vercel.app/index.html",
         },
         {
             title: "none",
-            desc: "ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra",
+            desc: "ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi",
             img: "website_img_sample",
             url: "https://www.youtube.com/",
         },
         {
             title: "none",
-            desc: "ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra",
+            desc: "ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi",
             img: "website_img_sample",
             url: "https://www.youtube.com/",
         },
@@ -78,7 +82,7 @@ export default function Works() {
             .fill()
             .map(() => {
                 return {
-                    left: Math.floor(-600 * Math.random()),
+                    left: Math.floor(-450 * Math.random()),
                     top: Math.floor(-200 * Math.random()),
                 };
             });
@@ -98,6 +102,27 @@ export default function Works() {
         }
     }, []);
 
+    //1024:3.2  1180:3.7
+    const boxRightSpace = (index) => {
+        if (w_px.max_w_1200 && wHeight > 1000) {
+            return (
+                wWidth / 20 +
+                index * 100 -
+                scrollPosn / (0.0032 * wHeight - 0.082)
+            );
+        } else if (w_px.max_w_700 && wHeight < 700) {
+            return wWidth / 20 + index * 100 - scrollPosn / 3.1;
+        } else if (w_px.max_w_700 && wHeight < 900) {
+            return wWidth / 20 + index * 100 - scrollPosn / 3.2;
+        } else if (w_px.max_w_700) {
+            return wWidth / 20 + index * 100 - scrollPosn / 3;
+        } else if (w_px.max_w_1200) {
+            return wWidth / 10 + index * 100 - scrollPosn / 2.75;
+        } else {
+            return wWidth / 10 + index * 100 - scrollPosn / 2.2;
+        }
+        //1667:2.2, 1100:2.75, 600:3
+    };
     const box_elements = box_data.map((item, index) => {
         return (
             boxLeftImgRanNum.length > 0 &&
@@ -108,7 +133,7 @@ export default function Works() {
                     title={item.title}
                     desc={item.desc}
                     img={item.img}
-                    right={150 + index * 100 - scrollPosn / 2.25}
+                    right={boxRightSpace(index)}
                     url={item.url}
                     left={boxLeftImgRanNum[index].left}
                     top={boxLeftImgRanNum[index].top}
@@ -185,7 +210,7 @@ export default function Works() {
                 {box_elements}
             </div>
             <h1 style={aniStyles.h1}>
-                My<br></br>Works
+                My<br></br>Wokrs
             </h1>
         </div>
     );

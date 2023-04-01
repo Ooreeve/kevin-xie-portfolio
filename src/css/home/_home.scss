@@ -5,6 +5,13 @@
     @include flex_col;
     position: relative;
     .title {
+        @media (max-width: 1200px) {
+            width: 80%;
+        }
+        @media (max-width: 700px) {
+            width: 90%;
+        }
+        width: 900px;
         opacity: 0;
         z-index: 5;
         transition: opacity 1s;
@@ -14,18 +21,28 @@
         }
         @include flex_col;
         h1 {
+            @media (max-width: 1200px) {
+                font-size: 5rem;
+            }
+            @media (max-width: 700px) {
+                font-size: 4rem;
+                padding-right: 5%;
+            }
             font-size: 6rem;
             color: $color_pri_d1;
             margin-top: -20px;
             font-weight: 400;
             padding-right: 50px;
-            span {
-                font-size: 6rem;
-                color: $color_pri_d1;
-                // -webkit-text-stroke: 1px $color_pri_d1;
-            }
         }
         h2 {
+            @media (max-width: 1200px) {
+                font-size: 1.8rem;
+                padding-left: 300px;
+            }
+            @media (max-width: 700px) {
+                font-size: 1.6rem;
+                padding-left: 55%;
+            }
             font-size: 2rem;
             color: $color_pri_d1;
             font-family: $font_sec_1;
@@ -34,8 +51,14 @@
         }
     }
     .title_bg {
+        @media (max-width: 1200px) {
+            width: 80%;
+        }
+        @media (max-width: 700px) {
+            width: 90%;
+        }
         content: "";
-        width: 50%;
+        width: 900px;
         height: 60%;
         backdrop-filter: blur(25px);
         position: absolute;

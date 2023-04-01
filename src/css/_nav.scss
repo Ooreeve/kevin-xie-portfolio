@@ -1,6 +1,10 @@
 nav {
     @include flex_row;
     .link_container {
+        @media (max-width: 700px) or (max-height: 800px) {
+            width: 60px;
+            height: 60px;
+        }
         width: 80px;
         height: 80px;
         margin: 0 3vw;
@@ -16,6 +20,9 @@ nav {
             transform: scale(1);
         }
         .link {
+            @media (max-width: 700px) or (max-height: 800px) {
+                font-size: 0.9rem;
+            }
             position: absolute;
             width: inherit;
             height: inherit;
@@ -62,6 +69,23 @@ nav {
     //     }
     // }
     .fake_main_curtain {
+        @media (max-width: 1200px) {
+            width: 95vw;
+        }
+        @media (max-width: 700px) {
+            top: 100px;
+            height: 83%;
+        }
+        @media (max-height: 800px) {
+            top: 100px;
+            height: 80%;
+        }
+        @media (max-height: 700px) {
+            height: 78%;
+        }
+        @media (min-height: 1000px) {
+            height: 80%;
+        }
         position: absolute;
         top: 160px;
         width: 90vw;
@@ -71,6 +95,24 @@ nav {
         backdrop-filter: blur(5px);
     }
     .fake_main_in {
+        @media (max-width: 1200px) {
+            width: 95vw;
+        }
+        @media (max-width: 700px) {
+            top: 100px;
+            height: 83%;
+        }
+        @media (max-height: 800px) {
+            top: 100px;
+            height: 80%;
+        }
+
+        @media (max-height: 700px) {
+            height: 78%;
+        }
+        @media (min-height: 1000px) {
+            height: 80%;
+        }
         position: absolute;
         top: 160px;
         width: 90vw;
@@ -80,6 +122,11 @@ nav {
         z-index: -2;
         overflow: hidden;
         .link_bg_in {
+            @media (max-width: 700px) or (max-height: 800px) {
+                width: 60px;
+                height: 60px;
+                top: -80px;
+            }
             width: 80px;
             height: 80px;
             margin: 0 3vw;
@@ -91,6 +138,23 @@ nav {
         }
     }
     .fake_main_out {
+        @media (max-width: 1200px) {
+            width: 95vw;
+        }
+        @media (max-width: 700px) {
+            top: 100px;
+            height: 83%;
+        }
+        @media (max-height: 800px) {
+            top: 100px;
+            height: 80%;
+        }
+        @media (max-height: 700px) {
+            height: 78%;
+        }
+        @media (min-height: 1000px) {
+            height: 80%;
+        }
         position: absolute;
         top: 160px;
         width: 90vw;
@@ -100,6 +164,11 @@ nav {
         z-index: -2;
         overflow: hidden;
         .link_bg_out {
+            @media (max-width: 700px) or (max-height: 800px) {
+                width: 60px;
+                height: 60px;
+                top: -80px;
+            }
             width: 80px;
             height: 80px;
             margin: 0 3vw;

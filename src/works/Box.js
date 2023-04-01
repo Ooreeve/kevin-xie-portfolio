@@ -22,11 +22,13 @@ export default function Box(props) {
                     style={{ left: `${props.left}px`, top: `${props.top}px` }}
                 />
             </div>
-            <div className="left_text">
-                <div className="no">{props.no}.</div>
-                <div className="box_title">{props.title}</div>
+            <div className="mid">
+                <div className="left_text">
+                    <div className="no">{props.no}.</div>
+                    <div className="box_title">{props.title}</div>
+                </div>
+                <div className="desc">{props.desc}</div>
             </div>
-            <div className="desc">{props.desc}</div>
             <div className="right">
                 <img
                     src={require(`../images/works/${props.img}.jpg`)}

@@ -7,35 +7,93 @@
         padding: 0;
         margin: 0;
     }
+
     h1 {
+        @media (max-width: 1200px) {
+            font-size: 6vw;
+            transform: translate(-25vw, calc(-15vw - 0px));
+        }
+        @media (max-width: 700px) {
+            font-size: 11vw;
+            top: 20px;
+            left: 15px;
+            transform: translate(0, 0);
+        }
+        @media (min-height: 1000px) and (max-width: 900px) {
+            font-size: 10vw;
+            top: 20px;
+            left: 50px;
+            transform: translate(0, 0);
+        }
         position: relative;
         z-index: 5;
         font-size: 5rem;
         color: $color_pri_d1;
         position: absolute;
         opacity: 0;
-        transform: translate(-360px, -225px);
+        transform: translate(-22vw, calc(-10vw - 40px));
     }
     .contact_container {
+        @media (max-width: 1200px) {
+            width: calc(70vw + 150px);
+            height: calc(30vw + 20px);
+        }
+        @media (max-width: 700px) {
+            position: absolute;
+            width: 32vh;
+            height: auto;
+            @include flex_col(flex-end, flex-end);
+            top: 2.5vh;
+            right: 15px;
+        }
+        @media (min-height: 1000px) and (max-width: 900px) {
+            position: absolute;
+            width: 32vh;
+            height: auto;
+            @include flex_col(flex-end, flex-end);
+            top: 5vh;
+            right: 12vw;
+        }
         opacity: 0;
         * {
             font-family: $font_sec_1;
         }
         @include flex_row(flex-end, center);
         background-color: $color_pri_l2;
-        width: 1100px;
-        height: 450px;
+        width: calc(32vw + 500px);
+        height: calc(20vw + 90px);
         border-radius: 30px;
         margin-top: 30px;
         .email_address {
+            @media (max-width: 700px) {
+                height: auto;
+                padding-top: 20px;
+            }
+            @media (min-height: 1000px) and (max-width: 900px) {
+                height: auto;
+                padding-top: 20px;
+            }
+            position: relative;
             height: 100%;
             @include flex_col(flex-end, center);
             overflow: hidden;
             h2 {
+                @media (max-width: 1200px) {
+                    font-size: calc(12vw - 40px);
+                    line-height: calc(12vw - 40px);
+                }
+                @media (max-width: 700px) {
+                    font-size: 6vh;
+                    line-height: 6vh;
+                }
+                @media (min-height: 1000px) and (max-width: 900px) {
+                    font-size: 6vh;
+                    line-height: 6vh;
+                }
                 opacity: 0;
                 text-align: right;
-                font-size: 8.5rem;
-                line-height: 7.5rem;
+                font-size: 7.5vw;
+                line-height: 7.5vw;
                 color: $color_pri_d2;
                 margin: 10px;
                 user-select: text;
@@ -50,16 +108,46 @@
             }
         }
         .message_box {
+            @media (max-width: 700px) {
+                position: absolute;
+                top: calc(20vh - 10px);
+                right: 15vw;
+            }
+            @media (min-height: 1000px) and (max-width: 900px) {
+                position: absolute;
+                top: calc(15vh + 40px);
+                right: 9vw;
+            }
             position: relative;
             @include flex_col;
             margin-bottom: 50px;
             h3 {
+                @media (max-width: 1200px) {
+                    font-size: 1.4rem;
+                }
+                @media (max-width: 700px) {
+                    font-size: 1.2rem;
+                    padding-right: 60px;
+                }
+                @media (min-height: 1000px) and (max-width: 900px) {
+                    font-size: 1.8rem;
+                }
                 opacity: 0;
                 color: $color_sec_d3;
                 font-size: 1.8rem;
                 margin-bottom: 5px;
             }
             .form_container {
+                @media (max-width: 700px) {
+                    width: 70vw;
+                    border-radius: 15px;
+                    padding: 5px;
+                }
+                @media (min-height: 1000px) and (max-width: 900px) {
+                    width: 60vw;
+                    border-radius: 25px;
+                    padding: 10px;
+                }
                 opacity: 0;
                 position: relative;
                 width: 370px;
@@ -100,6 +188,18 @@
                     }
                 }
                 %input {
+                    @media (max-width: 700px) {
+                        height: 6vh;
+                        border-radius: 10px;
+                        font-size: 1rem;
+                        padding: 2px 0 0 10px;
+                    }
+                    @media (min-height: 1000px) and (max-width: 900px) {
+                        height: 6vh;
+                        border-radius: 15px;
+                        font-size: 1.4rem;
+                        padding: 2px 0 0 10px;
+                    }
                     width: 100%;
                     height: 60px;
                     border-radius: 20px;
@@ -121,6 +221,12 @@
                     }
                 }
                 form {
+                    @media (max-width: 700px) {
+                        gap: 5px;
+                    }
+                    @media (min-height: 1000px) and (max-width: 900px) {
+                        gap: 10px;
+                    }
                     @include flex_col;
                     gap: 10px;
                     z-index: 5;
@@ -134,12 +240,26 @@
                         @extend %input;
                     }
                     .message {
+                        @media (max-width: 700px) {
+                            height: calc(50vh - 170px);
+                            padding-top: 8px;
+                        }
+                        @media (min-height: 1000px) and (max-width: 900px) {
+                            height: calc(45vh - 220px);
+                            padding-top: 17px;
+                        }
                         @extend %input;
                         height: 300px;
                         padding-top: 20px;
                         line-height: 1.5rem;
                     }
                     .submit {
+                        @media (max-width: 700px) {
+                            font-size: 1rem;
+                        }
+                        @media (min-height: 1000px) and (max-width: 900px) {
+                            font-size: 1.6rem;
+                        }
                         @extend %input;
                         color: $color_sec_d3;
                         font-size: 1.6rem;
@@ -162,6 +282,9 @@
                 .form_background_img {
                     position: absolute;
                     animation: form_img 100s infinite linear;
+                    @media (min-height: 1000px) and (max-width: 900px) {
+                        animation: form_img_2 100s infinite linear;
+                    }
                     @keyframes form_img {
                         0% {
                             transform: rotate(0deg) scale(0.6);
@@ -170,10 +293,27 @@
                             transform: rotate(-360deg) scale(0.6);
                         }
                     }
+                    @keyframes form_img_2 {
+                        0% {
+                            transform: rotate(0deg) scale(0.8);
+                        }
+                        100% {
+                            transform: rotate(-360deg) scale(0.8);
+                        }
+                    }
                 }
             }
         }
         .smp_box {
+            position: relative;
+            @media (max-width: 700px) {
+                margin-bottom: 20px;
+                height: auto;
+            }
+            @media (min-height: 1000px) and (max-width: 900px) {
+                margin-bottom: 20px;
+                height: auto;
+            }
             height: 100%;
             margin-bottom: 50px;
             overflow: hidden;
@@ -182,6 +322,18 @@
                 opacity: 0;
                 @include flex_col;
                 .icon {
+                    @media (max-width: 1200px) {
+                        width: 35px;
+                        margin: 5px 15px;
+                    }
+                    @media (max-width: 700px) {
+                        width: 30px;
+                        margin: 3px 15px;
+                    }
+                    @media (min-height: 1000px) and (max-width: 900px) {
+                        width: 40px;
+                        margin: 10px 15px;
+                    }
                     width: 40px;
                     margin: 10px 20px;
                     transition: all 0.3s;
@@ -232,7 +384,8 @@
 @keyframes contact_form_container {
     0% {
         opacity: 1;
-        transform: translate(0px, 620px);
+        // transform: translate(0px, 620px);
+        margin-top: 1500px;
     }
     100% {
         opacity: 1;
