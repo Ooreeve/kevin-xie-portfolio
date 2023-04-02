@@ -23,21 +23,28 @@ export default function Skill() {
     const skills_design = [
         { id: 0, skill: "ps", prog: 70 },
         { id: 1, skill: "ai", prog: 70 },
-        { id: 3, skill: "cad", prog: 80 },
+        { id: 3, skill: "cad", prog: 100 },
         { id: 4, skill: "ppt", prog: 100 },
-        { id: 5, skill: "catia", prog: 60 },
+        { id: 5, skill: "catia", prog: 80 },
         { id: 6, skill: "figma", prog: 60 },
     ];
 
     const skills_frontend = [
-        { id: 0, skill: "html", prog: 90 },
-        { id: 1, skill: "css", prog: 90 },
-        { id: 3, skill: "js", prog: 70 },
-        { id: 4, skill: "react", prog: 70 },
-        { id: 5, skill: "sass", prog: 80 },
+        { id: 0, skill: "html", prog: 100 },
+        { id: 1, skill: "css", prog: 100 },
+        { id: 3, skill: "js", prog: 80 },
+        { id: 4, skill: "react", prog: 90 },
+        { id: 5, skill: "sass", prog: 90 },
         { id: 6, skill: "next", prog: 50 },
     ];
 
+    const skills_backend = [
+        { id: 0, skill: "node", prog: 70 },
+        { id: 1, skill: "mysql", prog: 60 },
+        { id: 2, skill: "mongo", prog: 60 },
+        { id: 3, skill: "restapi", prog: 60 },
+        { id: 4, skill: "ts", prog: 60 },
+    ];
     const skillbars_design = skills_design.map((item) => {
         return (
             <SkillBar
@@ -61,6 +68,19 @@ export default function Skill() {
             />
         );
     });
+
+    const skillbars_backend = skills_backend.map((item) => {
+        return (
+            <SkillBar
+                key={item.id}
+                progress={yet == true ? item.prog : 0}
+                skill_name={item.skill}
+                img_styles={{ left: `${ranNum[item.id + 6]}px` }}
+                icon={item.skill}
+            />
+        );
+    });
+
     return (
         <div className="skill">
             <div className="h1_container">
@@ -69,13 +89,14 @@ export default function Skill() {
                         yet ? { animation: "skill_h1 2s 0.5s forwards" } : {}
                     }
                 >
-                    my skill
+                    my skills
                 </h1>
             </div>
             <div className="h2_container">
                 <h2 style={yet ? { animation: "h2 1s 0.5s forwards" } : {}}>
                     Product Design&nbsp;,&nbsp;&nbsp;Visual
                     Design&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;Frontend
+                    Development&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;Backend
                     Development
                 </h2>
             </div>
@@ -86,6 +107,8 @@ export default function Skill() {
                 {skillbars_design}
                 <div className="plus">+</div>
                 {skillbars_frontend}
+                <div className="plus">+</div>
+                {skillbars_backend}
             </div>
         </div>
     );
