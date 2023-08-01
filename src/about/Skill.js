@@ -43,7 +43,8 @@ export default function Skill() {
         { id: 0, skill: "node", prog: 80 },
         { id: 1, skill: "mysql", prog: 80 },
         { id: 2, skill: "mongo", prog: 60 },
-        { id: 3, skill: "ts", prog: 80 },
+        { id: 3, skill: "restapi", prog: 80 },
+        { id: 4, skill: "ts", prog: 80 },
     ];
     const skillbars_design = skills_design.map((item) => {
         return (
