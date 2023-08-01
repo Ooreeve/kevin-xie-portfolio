@@ -21,8 +21,8 @@ export default function Skill() {
     }, []);
 
     const skills_design = [
-        { id: 0, skill: "ps", prog: 70 },
-        { id: 1, skill: "ai", prog: 70 },
+        { id: 0, skill: "ps", prog: 80 },
+        { id: 1, skill: "ai", prog: 80 },
         { id: 3, skill: "cad", prog: 100 },
         { id: 4, skill: "ppt", prog: 100 },
         { id: 5, skill: "catia", prog: 80 },
@@ -33,17 +33,17 @@ export default function Skill() {
         { id: 0, skill: "html", prog: 100 },
         { id: 1, skill: "css", prog: 100 },
         { id: 3, skill: "js", prog: 80 },
-        { id: 4, skill: "react", prog: 90 },
-        { id: 5, skill: "sass", prog: 90 },
-        { id: 6, skill: "next", prog: 50 },
+        { id: 4, skill: "react", prog: 80 },
+        { id: 5, skill: "sass", prog: 100 },
+        { id: 6, skill: "next", prog: 80 },
+        { id: 7, skill: "tailwind", prog: 100 },
     ];
 
     const skills_backend = [
-        { id: 0, skill: "node", prog: 70 },
-        { id: 1, skill: "mysql", prog: 60 },
+        { id: 0, skill: "node", prog: 80 },
+        { id: 1, skill: "mysql", prog: 80 },
         { id: 2, skill: "mongo", prog: 60 },
-        { id: 3, skill: "restapi", prog: 60 },
-        { id: 4, skill: "ts", prog: 60 },
+        { id: 3, skill: "ts", prog: 80 },
     ];
     const skillbars_design = skills_design.map((item) => {
         return (
